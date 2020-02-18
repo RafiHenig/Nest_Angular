@@ -1,0 +1,30 @@
+{
+  "name": "portofolio",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "install-client": "cd src/client && npm i",
+    "install-server": "cd src/server&&npm i",
+    "serve-client": "cd src/client && ng serve -o",
+    "build-client": "cd src/client && ng build --prod",
+    "start-server": "cd src/server && nest start --watch",
+    "debug-server": "cd src/server && nest start --debug",
+    "build-server": "cd src/server && nest build",
+    "dev": "start  npm run start-server | start npm run build-client | (cd client && code .) | (cd server && code .)",
+    "mig:generate": "cd src/server && typeorm migration:generate",
+    "mig:create": "cd src/server && typeorm migration:create",
+    "mig:run": "cd src/server && typeorm migration:run",
+    "mig:revert": "cd src/server && typeorm migration:revert",
+    "install": "npm i&&npm run install-client&&npm run install-server",
+    "sssc": "concurrently \"npm run serve-client\" \"npm run start-server\"",
+    "ssbc": "concurrently \"npm run build-client\" \"npm run start-server\"",
+    "bsbc": "concurrently \"npm run build-client\" \"npm run start-server\""
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {}
+}
