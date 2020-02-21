@@ -13,8 +13,7 @@ export class UserService {
 
     async createUser(x: CreateUserDTO): Promise<void> {
         const { username, email } = x;
-        const user = new User({ username, email });
-        user.roles = [new Role({ name: "Basic" })]
+        const user = new User({ username, email, roles: [new Role({ name: "Basic" })] });
         user.setPassword(x.password);
 
         if ((await this.userRepository.findOne({ email }))) throw new ConflictException("Email already exists.");

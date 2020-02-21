@@ -9,12 +9,12 @@
         "name": "Nest Debug",
         "protocol": "inspector",
         "sourceMaps": true,
-        "stopOnEntry": true,
+       // "stopOnEntry": true,
         "console": "internalConsole",
         "program": "${workspaceFolder}/src/main.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": [
-            "${workspaceFolder}/dist/**/*.js"
+            "${workspaceFolder}/dist/**/main.js"
         ]
     }]
 }

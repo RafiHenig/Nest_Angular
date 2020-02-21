@@ -1,0 +1,27 @@
+<section clas>
+  <textarea #text [(ngModel)]="textArea"></textarea>
+</section>
+<section>
+  <div class="controls">
+    <div>
+      <input #qeusion [(ngModel)]="inputValue">
+      <button (click)="appService.emitQuestion(qeusion.value)">ask</button>
+    </div>
+    <div>
+      <input #echo [(ngModel)]="echoValue">
+      <button (click)="appService.emitEcho(echo.value)">echo</button>
+    </div>
+    <!-- <div>
+      <input #input [(ngModel)]="inputValue">
+      <button (click)="send(input.value)">comment</button>
+    </div> -->
+    <div>
+      <button (click)="textArea = ''">clear</button>
+    </div>
+
+    <div>
+      <button (click)="appService.startStream()">start</button>
+      <button (click)="appService.stopStream()">stop</button>
+    </div>
+  </div>
+</section>

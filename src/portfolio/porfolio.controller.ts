@@ -4,7 +4,9 @@ import { PortfolioDTO } from './portfolio.dto';
 
 @Controller('portfolio')
 export class PortfolioController {
-    constructor(private readonly portfolioService: PortfolioService) { }
+    constructor(private readonly portfolioService: PortfolioService) {
+        console.log(234)
+     }
 
     @Post()
     async  create(@Body() x: PortfolioDTO) {
