@@ -7,6 +7,7 @@ const { log: L } = console;
 @Injectable()
 export class EventsService {
     private readonly wsClientsSource = new BehaviorSubject<Socket[]>([]);
+
     private readonly wm = new WeakMap<Socket, Subscription>();
 
     public readonly wsClients$ = this.wsClientsSource.asObservable();
@@ -22,9 +23,11 @@ export class EventsService {
 
     public readonly getStream = (x: Socket): void => {
         this.stopStream(x);
-        this.wm.set(x, timer(0, 1000).pipe(mapTo(new Date().toLocaleTimeString())).pipe(tap(L)).subscribe(y => x.emit("stream", y)));
+        this.wm.set(
+            x,
+            timer(0, 1000).pipe(mapTo(new Date().toLocaleTimeString()), tap(L)).subscribe(y => x.emit("stream", y))
+        );
     }
 
     public readonly stopStream = (x: Socket): void => this.wm.get(x)?.unsubscribe();
-
 }

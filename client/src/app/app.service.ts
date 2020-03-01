@@ -16,5 +16,5 @@ export class AppService {
   public getAnswer: Observable<string> = this.socket.fromEvent<string>("question");
   public getEvents: Observable<string> = this.socket.fromEvent<string>("events");
   public getEcho: Observable<string> = this.socket.fromEvent<string>("echo");
-  public stream: Observable<void> = this.socket.fromEvent<void>("stream");
+  public stream: Observable<any> = this.socket.fromEvent<any>("stream");
 }

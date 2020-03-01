@@ -29,6 +29,7 @@ export class AppComponent implements AfterViewInit {
 
   writeToTextArea = (x: string) => {
     const { nativeElement: { scrollHeight, clientHeight } } = this.text;
+    if(typeof x == "object") x = JSON.stringify(x)
     this.textArea =  scrollHeight > clientHeight ? x : `${this.textArea} \n ${x}`
   }
 }
